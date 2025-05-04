@@ -44,8 +44,8 @@ add_library(threadmanager STATIC ${LIBRARY_SOURCES})
 target_link_libraries(threadmanager PRIVATE Threads::Threads ${cJSON_LIBRARIES})
 
 # Examples
-#add_executable(example example/example.c)
-#target_link_libraries(example PRIVATE threadmanager Threads::Threads)
+add_executable(example example/example.c)
+target_link_libraries(example PRIVATE threadmanager Threads::Threads)
 
 #add_executable(process_example example/process_example.c)
 #target_link_libraries(process_example PRIVATE threadmanager Threads::Threads)

@@ -58,7 +58,7 @@ void *worker_thread(void *arg) {
     }
     
     // Simulate work with pause and exit checks
-    for (int i = 0; i < 10; i++) {
+    for (int i = 0; i < 100; i++) {
         // Check if thread should exit
         if (thread_should_exit(&manager, thread_id)) {
             INFO_LOG("Worker thread %d exiting", thread_num);
@@ -68,7 +68,7 @@ void *worker_thread(void *arg) {
         // Check if thread is paused
         thread_check_pause(&manager, thread_id);
         
-        INFO_LOG("Worker thread %d working: %d/10", thread_num, i + 1);
+        INFO_LOG("Worker thread %d working: %d/100", thread_num, i + 1);
         sleep(1);
     }
     

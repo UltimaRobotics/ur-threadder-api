@@ -658,16 +658,18 @@ int thread_stop(thread_manager_t *manager, unsigned int thread_id) {
         ERROR_LOG("Invalid manager pointer");
         return -1;
     }
-    
+    DEBUG_LOG("Thread mutex lock..");
+
     // Lock manager mutex
     pthread_mutex_lock(&manager->mutex);
-    
+    DEBUG_LOG("Thread mutex lock done..");
+
     // Find thread info
     thread_info_t *info = find_thread_by_id(manager, thread_id);
     if (!info) {
         ERROR_LOG("Thread with ID %u not found", thread_id);
         pthread_mutex_unlock(&manager->mutex);
-        return -1;
+        return -2;
     }
     
     // Set thread to exit

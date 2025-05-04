@@ -1,0 +1,1 @@
+/usr/bin/cc CMakeFiles/example.dir/example/example.c.o -o example  libthreadmanager.a 
